@@ -1,69 +1,137 @@
-# Welcome to your Lovable project
+# Mermaid Diagram Sketcher 🎨
 
-## Project info
+An interactive web application for creating beautiful flowcharts and diagrams using Mermaid syntax with AI assistance.
 
-**URL**: https://lovable.dev/projects/e751f4c0-8ecf-4b68-92d9-99805a66e66e
+**Created by:** Satyam Kumar  
+**Contact:** satyamkmr37@gmail.com  
+**Live Demo:** [View Application](https://lovable.dev/projects/e751f4c0-8ecf-4b68-92d9-99805a66e66e)
 
-## How can I edit this code?
+## 🚀 What This Project Does
 
-There are several ways of editing your application.
+This application helps users create professional diagrams and flowcharts using:
+- **Mermaid Syntax**: Industry-standard diagramming language
+- **AI-Powered Generation**: Describe your diagram in plain English, get Mermaid code
+- **Live Preview**: See your diagrams render in real-time as you type
+- **Export Functionality**: Save your diagrams as SVG files
+- **Dark/Light Mode**: Toggle between themes for comfortable viewing
 
-**Use Lovable**
+## 🛠️ Technical Implementation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e751f4c0-8ecf-4b68-92d9-99805a66e66e) and start prompting.
+### Architecture Overview
+- **Frontend Framework**: React 18 with TypeScript for type safety
+- **Build Tool**: Vite for fast development and optimized builds
+- **Styling**: Tailwind CSS with custom design tokens
+- **UI Components**: Shadcn/ui component library
+- **Diagram Rendering**: Mermaid.js library for diagram visualization
+- **State Management**: React hooks (useState, useEffect)
+- **File Export**: FileSaver.js for SVG export functionality
 
-Changes made via Lovable will be committed automatically to this repo.
+### Key Features I Built
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+#### 1. **Dual-Panel Interface**
+```typescript
+// Split layout with editor and preview
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <Editor /> {/* Left panel for code editing */}
+  <Preview /> {/* Right panel for live preview */}
+</div>
 ```
 
-**Edit a file directly in GitHub**
+#### 2. **Real-time Diagram Rendering**
+- Integrated Mermaid.js with React lifecycle
+- Custom error handling for invalid syntax
+- Loading states for better user experience
+- Theme synchronization between app and diagrams
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+#### 3. **AI Prompt Integration**
+- Tab-based interface switching between manual code and AI prompts
+- Structured prompt handling for diagram generation
+- User-friendly error messaging
 
-**Use GitHub Codespaces**
+#### 4. **Export System**
+- SVG extraction from rendered diagrams
+- Dynamic filename generation based on diagram content
+- Toast notifications for user feedback
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Development Challenges Solved
 
-## What technologies are used for this project?
+1. **Mermaid Integration**: Had to carefully manage Mermaid initialization and re-rendering when themes change
+2. **Theme Consistency**: Ensured diagrams match the application's dark/light mode
+3. **Error Handling**: Implemented graceful error handling for invalid Mermaid syntax
+4. **Responsive Design**: Created a layout that works on both desktop and mobile devices
 
-This project is built with .
+## 🏗️ Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── components/
+│   ├── ui/           # Reusable UI components (buttons, dialogs, etc.)
+│   ├── Header.tsx    # Top navigation with export and theme toggle
+│   ├── Editor.tsx    # Code editor with tab interface
+│   ├── Preview.tsx   # Mermaid diagram renderer
+│   └── AIPrompt.tsx  # AI prompt handling component
+├── pages/
+│   ├── Index.tsx     # Main application page
+│   └── NotFound.tsx  # 404 error page
+├── hooks/            # Custom React hooks
+├── lib/              # Utility functions
+└── utils/            # API and helper functions
+```
 
-## How can I deploy this project?
+## 💻 Technologies Used
 
-Simply open [Lovable](https://lovable.dev/projects/e751f4c0-8ecf-4b68-92d9-99805a66e66e) and click on Share -> Publish.
+- **React 18**: Modern React with hooks and functional components
+- **TypeScript**: Static typing for better code quality and developer experience
+- **Vite**: Fast build tool and development server
+- **Tailwind CSS**: Utility-first CSS framework for rapid styling
+- **Mermaid.js**: Diagram and flowchart library
+- **Shadcn/ui**: Modern, accessible component library
+- **Lucide React**: Beautiful icon library
+- **React Query**: Data fetching and caching (for future API integration)
 
-## I want to use a custom domain - is that possible?
+## 🔧 Setup and Installation
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Navigate to project directory
+cd mermaid-diagram-sketcher
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## 🎯 Future Enhancements
+
+- [ ] User authentication and diagram saving
+- [ ] Collaboration features for team diagram editing
+- [ ] More diagram types (Gantt charts, sequence diagrams, etc.)
+- [ ] Template library for common diagram patterns
+- [ ] Export to multiple formats (PNG, PDF, etc.)
+
+## 🎨 Design Principles
+
+- **User-Centric**: Clean, intuitive interface prioritizing ease of use
+- **Responsive**: Works seamlessly across all device sizes
+- **Accessible**: Proper contrast ratios and keyboard navigation
+- **Performance**: Optimized rendering and minimal bundle size
+
+## 📈 What I Learned
+
+This project helped me understand:
+- **Complex State Management**: Managing multiple interconnected states (code, preview, themes)
+- **Third-party Library Integration**: Working with Mermaid.js and handling its lifecycle
+- **Modern React Patterns**: Hooks, context, and component composition
+- **Build Tools**: Vite configuration and optimization
+- **User Experience**: Creating intuitive interfaces for technical tools
+
+---
+
+**Note**: This project demonstrates my ability to build modern, interactive web applications using current industry standards and best practices. The clean architecture and thoughtful user experience design showcase my understanding of both technical implementation and user-centered design principles.
